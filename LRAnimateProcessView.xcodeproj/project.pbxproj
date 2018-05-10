@@ -15,6 +15,7 @@
 		E8EDDE5420A1A08400CC8A3F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EDDE5320A1A08400CC8A3F /* main.m */; };
 		E8EDDE5E20A1A08400CC8A3F /* LRAnimateProcessViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EDDE5D20A1A08400CC8A3F /* LRAnimateProcessViewTests.m */; };
 		E8EDDE6920A1A08400CC8A3F /* LRAnimateProcessViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EDDE6820A1A08400CC8A3F /* LRAnimateProcessViewUITests.m */; };
+		E8EDDE7E20A4206100CC8A3F /* LRAnimationProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EDDE7D20A4206100CC8A3F /* LRAnimationProgress.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		E8EDDE6420A1A08400CC8A3F /* LRAnimateProcessViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LRAnimateProcessViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8EDDE6820A1A08400CC8A3F /* LRAnimateProcessViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LRAnimateProcessViewUITests.m; sourceTree = "<group>"; };
 		E8EDDE6A20A1A08400CC8A3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8EDDE7C20A4206100CC8A3F /* LRAnimationProgress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRAnimationProgress.h; sourceTree = "<group>"; };
+		E8EDDE7D20A4206100CC8A3F /* LRAnimationProgress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LRAnimationProgress.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 		E8EDDE4320A1A08400CC8A3F /* LRAnimateProcessView */ = {
 			isa = PBXGroup;
 			children = (
+				E8EDDE7C20A4206100CC8A3F /* LRAnimationProgress.h */,
+				E8EDDE7D20A4206100CC8A3F /* LRAnimationProgress.m */,
 				E8EDDE4420A1A08400CC8A3F /* AppDelegate.h */,
 				E8EDDE4520A1A08400CC8A3F /* AppDelegate.m */,
 				E8EDDE4720A1A08400CC8A3F /* ViewController.h */,
@@ -266,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8EDDE4920A1A08400CC8A3F /* ViewController.m in Sources */,
+				E8EDDE7E20A4206100CC8A3F /* LRAnimationProgress.m in Sources */,
 				E8EDDE5420A1A08400CC8A3F /* main.m in Sources */,
 				E8EDDE4620A1A08400CC8A3F /* AppDelegate.m in Sources */,
 			);
