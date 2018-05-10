@@ -10,7 +10,7 @@
 
 // 动画时间
 const NSTimeInterval LRStripesAnimationTime     = 0.03f;
-const NSTimeInterval LRProgressAnimationTime    = 0.25f;
+const NSTimeInterval LRProgressAnimationTime    = 0.5f;
 
 
 @interface LRAnimationProgress ()
@@ -87,8 +87,7 @@ const NSTimeInterval LRProgressAnimationTime    = 0.25f;
             progress = 0.0f;
         }
         
-        _numberOfHighlightNodes = floorf(progress * _numberOfNodes);
-        
+        _numberOfHighlightNodes = floorf(progress * _numberOfNodes + 0.5);
         
         if (animated){
             _targetProgress = progress;

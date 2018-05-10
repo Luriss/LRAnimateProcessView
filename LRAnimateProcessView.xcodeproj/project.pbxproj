@@ -16,6 +16,7 @@
 		E8EDDE5E20A1A08400CC8A3F /* LRAnimateProcessViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EDDE5D20A1A08400CC8A3F /* LRAnimateProcessViewTests.m */; };
 		E8EDDE6920A1A08400CC8A3F /* LRAnimateProcessViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EDDE6820A1A08400CC8A3F /* LRAnimateProcessViewUITests.m */; };
 		E8EDDE7E20A4206100CC8A3F /* LRAnimationProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EDDE7D20A4206100CC8A3F /* LRAnimationProgress.m */; };
+		E8EDDE8020A4339700CC8A3F /* show.gif in Resources */ = {isa = PBXBuildFile; fileRef = E8EDDE7F20A4339700CC8A3F /* show.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		E8EDDE6A20A1A08400CC8A3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8EDDE7C20A4206100CC8A3F /* LRAnimationProgress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRAnimationProgress.h; sourceTree = "<group>"; };
 		E8EDDE7D20A4206100CC8A3F /* LRAnimationProgress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LRAnimationProgress.m; sourceTree = "<group>"; };
+		E8EDDE7F20A4339700CC8A3F /* show.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = show.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		E8EDDE4320A1A08400CC8A3F /* LRAnimateProcessView */ = {
 			isa = PBXGroup;
 			children = (
+				E8EDDE7F20A4339700CC8A3F /* show.gif */,
 				E8EDDE7C20A4206100CC8A3F /* LRAnimationProgress.h */,
 				E8EDDE7D20A4206100CC8A3F /* LRAnimationProgress.m */,
 				E8EDDE4420A1A08400CC8A3F /* AppDelegate.h */,
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8EDDE5120A1A08400CC8A3F /* LaunchScreen.storyboard in Resources */,
+				E8EDDE8020A4339700CC8A3F /* show.gif in Resources */,
 				E8EDDE4E20A1A08400CC8A3F /* Assets.xcassets in Resources */,
 				E8EDDE4C20A1A08400CC8A3F /* Main.storyboard in Resources */,
 			);

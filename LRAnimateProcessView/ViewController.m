@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    sleep(10);
     self.view.backgroundColor = [UIColor whiteColor];
     LRAnimationProgress *pv = [[LRAnimationProgress alloc] initWithFrame:CGRectMake(30, 100, 300, 20)];
     pv.backgroundColor = [UIColor clearColor];
@@ -29,9 +30,20 @@
     pv.numberOfNodes = 2;
     pv.hideAnnulus = NO;
     
-    [pv setProgress:0.5 animated:YES];
+    [pv setProgress:0.3 animated:YES];
     [self.view addSubview:pv];
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [pv setProgress:0.5 animated:YES];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [pv setProgress:0.7 animated:YES];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [pv setProgress:1.0 animated:YES];
+            });
+        });
+    });
     
     
     LRAnimationProgress *pv2 = [[LRAnimationProgress alloc] initWithFrame:CGRectMake(30, 200, 300, 15)];
@@ -42,8 +54,20 @@
     pv2.numberOfNodes = 4;
     pv2.hideAnnulus = NO;
     
-    [pv2 setProgress:0.8 animated:YES];
+    [pv2 setProgress:0.3 animated:YES];
     [self.view addSubview:pv2];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [pv2 setProgress:0.5 animated:YES];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [pv2 setProgress:0.7 animated:YES];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [pv2 setProgress:1.0 animated:YES];
+            });
+        });
+    });
     
     // Do any additional setup after loading the view, typically from a nib.
 }
