@@ -36,6 +36,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E8EDDE9420A4383100CC8A3F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		E8EDDE4120A1A08400CC8A3F /* LRAnimateProcessView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LRAnimateProcessView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8EDDE4420A1A08400CC8A3F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -150,6 +163,7 @@
 				E8EDDE3D20A1A08400CC8A3F /* Sources */,
 				E8EDDE3E20A1A08400CC8A3F /* Frameworks */,
 				E8EDDE3F20A1A08400CC8A3F /* Resources */,
+				E8EDDE9420A4383100CC8A3F /* Embed App Extensions */,
 			);
 			buildRules = (
 			);

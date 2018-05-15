@@ -49,14 +49,14 @@ typedef NS_ENUM (NSUInteger, LRStripesOrientation)
  进度条颜色数组，多组颜色会设置成渐变色
  设置该属性后， 属性progressTintColor将会失效
  */
-@property (nonatomic, strong, nonnull) NSArray  *progressTintColors;
+@property (nonatomic, strong) NSArray  *progressTintColors;
 
 
 /**
  进度条颜色
  default is view backgroundColor.
  */
-@property (nonatomic, strong, nonnull)UIColor   *progressTintColor;
+@property (nonatomic, strong)UIColor   *progressTintColor;
 
 
 /**
@@ -109,7 +109,7 @@ typedef NS_ENUM (NSUInteger, LRStripesOrientation)
  条纹颜色
  default is purple color
  */
-@property (nonatomic, strong, nonnull)UIColor *stripesColor;
+@property (nonatomic, strong)UIColor *stripesColor;
 
 
 /**
@@ -139,7 +139,7 @@ typedef NS_ENUM (NSUInteger, LRStripesOrientation)
  轨迹颜色
  default is black color
  */
-@property (nonatomic, strong, nonnull)UIColor   *trackTintColor;
+@property (nonatomic, strong)UIColor  *trackTintColor;
 
 
 #pragma mark --- Configuring Node
@@ -158,7 +158,7 @@ typedef NS_ENUM (NSUInteger, LRStripesOrientation)
  default is track tint color.
  if no track tint color,you need set a color.
  */
-@property (nonatomic, strong, nonnull)UIColor   *nodeColor;
+@property (nonatomic, strong)UIColor   *nodeColor;
 
 
 /**
@@ -167,7 +167,7 @@ typedef NS_ENUM (NSUInteger, LRStripesOrientation)
  default is progress tint color.
  if no progress tint color, you need set a color.
  */
-@property (nonatomic, strong, nonnull)UIColor   *nodeHighlightColor;
+@property (nonatomic, strong)UIColor   *nodeHighlightColor;
 
 
 /**
@@ -176,6 +176,7 @@ typedef NS_ENUM (NSUInteger, LRStripesOrientation)
  */
 @property (nonatomic, assign)BOOL hideAnnulus;
 
+- (instancetype)initWithFrame:(CGRect)frame;
 
 @end
 

@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    sleep(10);
+//    sleep(3);
     self.view.backgroundColor = [UIColor whiteColor];
     LRAnimationProgress *pv = [[LRAnimationProgress alloc] initWithFrame:CGRectMake(30, 100, 300, 20)];
     pv.backgroundColor = [UIColor clearColor];
@@ -46,7 +46,7 @@
     });
     
     
-    LRAnimationProgress *pv2 = [[LRAnimationProgress alloc] initWithFrame:CGRectMake(30, 200, 300, 15)];
+    LRAnimationProgress *pv2 = [[LRAnimationProgress alloc] initWithFrame:CGRectMake(30, 200, 300, 12)];
     pv2.backgroundColor = [UIColor clearColor];
     pv2.layer.cornerRadius = 10;
     pv2.progressTintColors = @[LRColorWithRGB(0xce2b2c),LRColorWithRGB(0xff734d)];

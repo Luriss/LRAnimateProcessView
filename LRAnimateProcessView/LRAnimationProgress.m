@@ -32,9 +32,12 @@ const NSTimeInterval LRProgressAnimationTime    = 0.5f;
 @implementation LRAnimationProgress
 @synthesize progress = _progress;
 
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    self = [super initWithFrame:frame];
+    // 最小高度 14.0f
+    CGRect rect = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, (frame.size.height>14)?:14);
+    self = [super initWithFrame:rect];
     if (self) {
         [self configDefaultProperty];
     }
@@ -181,27 +184,34 @@ const NSTimeInterval LRProgressAnimationTime    = 0.5f;
     CGFloat progressX = 0;
     CGFloat progressY = 0;
     CGFloat progressH = rectH;
-    
+    CGFloat offsetNodeH = 6.0f; // 节点高度与总高度的偏差
+
+    // 存在节点
     if (_canDrawNodes) {
-        CGFloat nodeH = rectH - 6;
-        progressH = rectH - 10;
-        progressX = 3 + nodeH *0.5;
+        CGFloat nodeH = rectH - offsetNodeH;  // 节点高度，默认总高度 减去偏差
+        progressH = rectH - 10;     // 有节点，默认进度条高度 为总高度减去10
+        progressX = (offsetNodeH + nodeH)*0.5; // 进度条开始位置 高度偏差的一半给位置。
         progressY = (rectH - progressH) * 0.5;
         
         if (!_hideAnnulus) {
             // 圆环的细节，放在底部
+            // 圆环的高度，默认为进度条起始位置的2倍。
             CGFloat cycleH = progressX * 2;
-            CGFloat cycleX = 0;
-            CGFloat cycleY = (rectH - cycleH)*0.5;
+            CGFloat cycleX = 0; // 从 0 开始
             
-            if (cycleH > rectH) {
-                cycleH = rectH;
-                cycleX = progressX - cycleH*0.5;
-                cycleY = 0;
+            // 若圆环高度大于总高度，默认为总高度减去2
+            if (cycleH >= rectH) {
+                cycleH = rectH - 2;
+                cycleX = progressX - cycleH*0.5; // 重新计算圆环起始位置
             }
+            
+            // 圆环的 y
+            CGFloat cycleY = (rectH - cycleH)*0.5;
+
+            // 每个节点的间距。
             CGFloat annulus =  ceilf((rect.size.width - _numberOfNodes*cycleH)/(_numberOfNodes - 1))-1;
             
-            [self drawCycle:context x:cycleX h:cycleH space:annulus];
+            [self drawCycle:context x:cycleX y:cycleY h:cycleH space:annulus];
         }
     }
     
@@ -224,7 +234,7 @@ const NSTimeInterval LRProgressAnimationTime    = 0.5f;
     
     if (_canDrawNodes) {
         // 节点
-        CGFloat pointH = rectH - 6;
+        CGFloat pointH = rectH - offsetNodeH;
         CGFloat pointX = progressX - pointH*0.5;
         CGFloat pointY = (rectH - pointH)*0.5;
         CGFloat space =  ceilf((rectW - progressX*2 - (_numberOfNodes - 1)*pointH)/(_numberOfNodes - 1))-1;
@@ -266,7 +276,11 @@ const NSTimeInterval LRProgressAnimationTime    = 0.5f;
 }
 
 
-- (void)drawCycle:(CGContextRef)context x:(CGFloat )x h:(CGFloat )h space:(CGFloat )space
+- (void)drawCycle:(CGContextRef)context
+                x:(CGFloat )x
+                y:(CGFloat )y
+                h:(CGFloat )h
+            space:(CGFloat )space
 {
     CGContextSaveGState(context);
     {
@@ -274,7 +288,7 @@ const NSTimeInterval LRProgressAnimationTime    = 0.5f;
         
         for (NSInteger i = 0; i < _numberOfNodes; i++)
         {
-            UIBezierPath *node = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(i * (space + h) + x, 0, h, h)];
+            UIBezierPath *node = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(i * (space + h) + x, y, h, h)];
             [self.trackTintColor set];
             [node stroke];
             [nodes appendPath:node];
