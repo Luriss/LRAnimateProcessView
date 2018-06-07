@@ -36,8 +36,8 @@ const NSTimeInterval LRProgressAnimationTime    = 0.5f;
 - (instancetype)initWithFrame:(CGRect)frame
 {
     // 最小高度 14.0f
-    CGRect rect = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, (frame.size.height>14)?:14);
-    self = [super initWithFrame:rect];
+//    CGRect rect = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, (frame.size.height>14)?frame.size.height:14);
+    self = [super initWithFrame:frame];
     if (self) {
         [self configDefaultProperty];
     }
@@ -91,6 +91,16 @@ const NSTimeInterval LRProgressAnimationTime    = 0.5f;
         }
         
         _numberOfHighlightNodes = floorf(progress * _numberOfNodes + 0.5);
+        
+        // 如果进度，没有跑完，但节点个数却等于总节点个数，则减去1.
+        if (progress < 1.0 && _numberOfHighlightNodes == _numberOfNodes) {
+            _numberOfHighlightNodes -= 1;
+        }
+        
+        if (progress > 0.0 && _numberOfHighlightNodes == 0) {
+            _numberOfHighlightNodes +=1;
+        }
+        
         
         if (animated){
             _targetProgress = progress;
@@ -188,9 +198,8 @@ const NSTimeInterval LRProgressAnimationTime    = 0.5f;
 
     // 存在节点
     if (_canDrawNodes) {
-        CGFloat nodeH = rectH - offsetNodeH;  // 节点高度，默认总高度 减去偏差
         progressH = rectH - 10;     // 有节点，默认进度条高度 为总高度减去10
-        progressX = (offsetNodeH + nodeH)*0.5; // 进度条开始位置 高度偏差的一半给位置。
+        progressX = rectH*0.5; // 进度条开始位置 高度偏差的一半给位置。
         progressY = (rectH - progressH) * 0.5;
         
         if (!_hideAnnulus) {
@@ -198,7 +207,6 @@ const NSTimeInterval LRProgressAnimationTime    = 0.5f;
             // 圆环的高度，默认为进度条起始位置的2倍。
             CGFloat cycleH = progressX * 2;
             CGFloat cycleX = 0; // 从 0 开始
-            
             // 若圆环高度大于总高度，默认为总高度减去2
             if (cycleH >= rectH) {
                 cycleH = rectH - 2;
@@ -209,7 +217,7 @@ const NSTimeInterval LRProgressAnimationTime    = 0.5f;
             CGFloat cycleY = (rectH - cycleH)*0.5;
 
             // 每个节点的间距。
-            CGFloat annulus =  ceilf((rect.size.width - _numberOfNodes*cycleH)/(_numberOfNodes - 1))-1;
+            CGFloat annulus =  ceilf((rect.size.width - _numberOfNodes*cycleH)/(_numberOfNodes - 1))-(_numberOfNodes==2?2:1);
             
             [self drawCycle:context x:cycleX y:cycleY h:cycleH space:annulus];
         }
@@ -237,7 +245,7 @@ const NSTimeInterval LRProgressAnimationTime    = 0.5f;
         CGFloat pointH = rectH - offsetNodeH;
         CGFloat pointX = progressX - pointH*0.5;
         CGFloat pointY = (rectH - pointH)*0.5;
-        CGFloat space =  ceilf((rectW - progressX*2 - (_numberOfNodes - 1)*pointH)/(_numberOfNodes - 1))-1;
+        CGFloat space =  floorf((rectW - progressX*2 - (_numberOfNodes - 1)*pointH)/(_numberOfNodes - 1));
         
         [self drawPoint:context x:pointX y:pointY h:pointH space:space];
     }

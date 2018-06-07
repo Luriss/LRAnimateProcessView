@@ -458,7 +458,7 @@
 				DEVELOPMENT_TEAM = 6Q5G7EZZR8;
 				INFOPLIST_FILE = LRAnimateProcessView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.luris.LRAnimateProcessView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chamc.hrcfcdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -472,7 +472,7 @@
 				DEVELOPMENT_TEAM = 6Q5G7EZZR8;
 				INFOPLIST_FILE = LRAnimateProcessView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.luris.LRAnimateProcessView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chamc.hrcfcdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

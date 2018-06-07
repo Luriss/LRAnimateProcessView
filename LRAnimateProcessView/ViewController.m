@@ -20,7 +20,7 @@
     
 //    sleep(3);
     self.view.backgroundColor = [UIColor whiteColor];
-    LRAnimationProgress *pv = [[LRAnimationProgress alloc] initWithFrame:CGRectMake(30, 100, 300, 20)];
+    LRAnimationProgress *pv = [[LRAnimationProgress alloc] initWithFrame:CGRectMake(30, 100, 300, 15)];
     pv.backgroundColor = [UIColor clearColor];
     pv.layer.cornerRadius = 10;
     pv.progressTintColors = @[LRColorWithRGB(0xce2b2c),LRColorWithRGB(0xff734d)];
@@ -30,7 +30,7 @@
     pv.numberOfNodes = 2;
     pv.hideAnnulus = NO;
     
-    [pv setProgress:0.3 animated:YES];
+    [pv setProgress:0.0 animated:YES];
     [self.view addSubview:pv];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -46,15 +46,15 @@
     });
     
     
-    LRAnimationProgress *pv2 = [[LRAnimationProgress alloc] initWithFrame:CGRectMake(30, 200, 300, 12)];
+    LRAnimationProgress *pv2 = [[LRAnimationProgress alloc] initWithFrame:CGRectMake(30, 200, 300, 20)];
     pv2.backgroundColor = [UIColor clearColor];
     pv2.layer.cornerRadius = 10;
     pv2.progressTintColors = @[LRColorWithRGB(0xce2b2c),LRColorWithRGB(0xff734d)];
     pv2.hideStripes = YES;
-    pv2.numberOfNodes = 4;
+    pv2.numberOfNodes = 5;
     pv2.hideAnnulus = NO;
     
-    [pv2 setProgress:0.3 animated:YES];
+    [pv2 setProgress:0.0 animated:YES];
     [self.view addSubview:pv2];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
